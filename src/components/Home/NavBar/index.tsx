@@ -2,7 +2,8 @@ import { ReactSVG } from "react-svg";
 import "./styles.scss";
 import Pokedex from "assets/svg/pokeball.svg";
 import SynviaIcon from "assets/svg/synvia-icon.svg";
-import SignOut from "assets/svg/sign-out.svg";
+import { faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavBar: React.FC = () => {
   return (
@@ -12,10 +13,9 @@ const NavBar: React.FC = () => {
           <ReactSVG src={Pokedex} />
           <span>Pokédex</span>
         </div>
-        <div className="d-flex">
+        <div className="d-flex align-items-center gap-4">
           <ReactSVG src={SynviaIcon} />
-          <ReactSVG src={SignOut} />
-          {/* <FontAwesomeIcon icon="fa-thin fa-right-from-bracket" /> */}
+          <FontAwesomeIcon icon={faSignOut} size="2x" color="white" />
         </div>
       </div>
     </nav>

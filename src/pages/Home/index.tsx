@@ -207,7 +207,7 @@ const Home = () => {
               <PokemonList
                 favoritePokemons={favoritePokemons}
                 onFavoriteClick={handlePokemonFavoriteClick}
-                pokemonList={pokemons.slice(0, 100)}
+                pokemonList={pokemons}
               />
             </Col>
           </Row>
