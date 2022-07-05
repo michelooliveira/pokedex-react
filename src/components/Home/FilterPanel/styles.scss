@@ -1,0 +1,28 @@
+$dark-gray: #828282;
+$light-gray: #f2f2f2;
+.filter-list {
+  &__container {
+    max-height: 75vh;
+    overflow: auto;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e2350d;
+      border-radius: 2px;
+    }
+  }
+  &__title {
+    padding: 0.5rem 0px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+  &__show-favorites {
+    padding: 1.7rem 0px;
+  }
+}

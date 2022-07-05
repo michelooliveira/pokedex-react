@@ -1,0 +1,23 @@
+.pokemon-type-input {
+  &__wrapper {
+    label {
+      height: 2.5rem;
+      border: 1px solid #e2350d;
+      border-radius: 1.25rem;
+      color: #e2350d;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 1em;
+    }
+    input[type="checkbox"] {
+      visibility: hidden;
+      &:checked + label {
+        border: 1px solid #ffffff;
+        background-color: #e2350d;
+        color: #ffffff;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.sort-toggle {
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  &__input {
+    height: 2.5rem;
+    border: 1px solid #e2350d;
+    border-radius: 1.25rem;
+    color: #e2350d;
+    font-size: 0.8rem;
+  }
+}

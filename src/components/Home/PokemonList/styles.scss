@@ -1,0 +1,17 @@
+.pokemon-list {
+  &__wrapper {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-height: 75vh;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e2350d;
+      border-radius: 2px;
+    }
+  }
+}

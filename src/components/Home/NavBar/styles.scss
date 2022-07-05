@@ -1,0 +1,25 @@
+$red: #e2350d;
+
+.navbar {
+  &__container {
+    box-shadow: -5px 3px 5px #777777b1;
+    background-color: $red;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  &__content {
+    padding: 1rem 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    font-family: "Titillium Web";
+    font-weight: 600;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

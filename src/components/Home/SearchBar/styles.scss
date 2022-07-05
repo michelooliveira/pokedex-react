@@ -1,0 +1,35 @@
+$light-gray: #f2f2f2;
+
+.search-bar {
+  &__wrapper {
+    background-color: $light-gray;
+    display: flex;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem;
+    border-radius: 1.25rem;
+  }
+  &__input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 0;
+    &:focus {
+      outline: none;
+    }
+    font-family: "Titillium Web", sans-serif;
+    color: #333333;
+    font-size: 0.9rem;
+  }
+  &__icon {
+    div {
+      display: flex;
+    }
+    width: 15px;
+    height: 15px;
+    svg {
+      fill: #e2350d;
+    }
+  }
+}
