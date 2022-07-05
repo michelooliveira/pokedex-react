@@ -18,6 +18,7 @@ const Home = () => {
     searchTerm: "",
     showFavorites: false,
     pokemonTypes: [] as string[],
+    sorting: "A" as "A" | "B",
   });
   const fetchedPokemonsRef = useRef<Pokemon[]>([]);
 
@@ -45,6 +46,13 @@ const Home = () => {
     ],
     []
   );
+
+  const handleChangeSortFilter = useCallback((value: "A" | "B") => {
+    setPokemonFilters((prev) => ({
+      ...prev,
+      sorting: value,
+    }));
+  }, []);
 
   const handleSearchTermChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,6 +92,18 @@ const Home = () => {
     []
   );
 
+  const sortPokemonsByNumber = useCallback(
+    (pokemonsToFilter: Pokemon[]): Pokemon[] => {
+      return pokemonsToFilter.sort((pokemonA, pokemonB) => {
+        if (pokemonFilters.sorting === "A") {
+          return +pokemonA.national_number - +pokemonB.national_number;
+        }
+        return +pokemonB.national_number - +pokemonA.national_number;
+      });
+    },
+    [pokemonFilters.sorting]
+  );
+
   useEffect(() => {
     const handleFilterChange = () => {
       setPokemons(() => {
@@ -108,6 +128,7 @@ const Home = () => {
             )
           );
         }
+        filteredPokemons = sortPokemonsByNumber(filteredPokemons);
         return filteredPokemons;
       });
     };
@@ -158,14 +179,19 @@ const Home = () => {
       <main>
         <Container className="p-0 w-75" fluid>
           <Row>
-            <Col className="p-3">
+            <Col xs={12} md={6} className="p-3">
               <SearchBar
                 onChange={handleSearchTermChange}
                 placeholder="Pesquisar por nome ou número"
               />
             </Col>
-            <Col className="p-3">
-              <SortToggle options={selectOptions} />
+            <Col xs={12} md={6} className="p-3">
+              <SortToggle
+                options={selectOptions}
+                onChange={(e) =>
+                  handleChangeSortFilter(e.target.value as "A" | "B")
+                }
+              />
             </Col>
           </Row>
           <Row>

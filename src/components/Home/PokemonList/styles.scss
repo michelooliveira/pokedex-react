@@ -15,3 +15,9 @@
     }
   }
 }
+@media only screen and (max-width: 720px) {
+  .pokemon-list__wrapper {
+    justify-content: center;
+    padding: 10px;
+  }
+}

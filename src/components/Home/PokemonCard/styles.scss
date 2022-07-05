@@ -4,6 +4,7 @@
     height: 18rem;
     padding: 1rem;
     border-radius: 5px;
+    border: 2px solid #f2f2f2;
   }
   &__picture {
     height: 9rem;
@@ -43,5 +44,11 @@
     path {
       fill: #e2350d;
     }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .pokemon-card__wrapper {
+    width: 100%;
   }
 }

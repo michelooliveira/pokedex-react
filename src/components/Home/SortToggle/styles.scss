@@ -11,5 +11,15 @@
     border-radius: 1.25rem;
     color: #e2350d;
     font-size: 0.8rem;
+    padding: 0px 10px;
+    &:focus {
+      outline: 2px solid #e2350d;
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .sort-toggle__wrapper {
+    justify-content: flex-start;
   }
 }
