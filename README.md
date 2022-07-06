@@ -1,13 +1,13 @@
 # PokéDex React (Gotta Code 'em All)
 
-[Clique aqui](https://pokedex-teste-react.netlify.app/) para acessar o app hospedado no Netlify:
+[Clique aqui](https://pokedex-teste-react.netlify.app/) para acessar o app hospedado no Netlify.
 
 
 
 
 ## Instalando e executando o ambiente de desenvolvimento do projeto
 
-### Este app utiliza gerenciador de pacotes Yarn. Caso não tenha instalado, [clique aqui](https://classic.yarnpkg.com/lang/en/docs/install):
+### Este app utiliza gerenciador de pacotes Yarn. Caso não tenha instalado, [clique aqui](https://classic.yarnpkg.com/lang/en/docs/install).
 
 ### Após instalação do Yarn:
 
