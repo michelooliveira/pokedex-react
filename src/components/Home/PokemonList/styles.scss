@@ -1,5 +1,6 @@
 .pokemon-list {
   &__wrapper {
+    list-style-type: none;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;

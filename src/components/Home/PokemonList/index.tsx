@@ -17,7 +17,7 @@ const PokemonList: React.FC<{
     [favoritePokemons, pokemonList]
   );
   return (
-    <div className="pokemon-list__wrapper">
+    <ul className="pokemon-list__wrapper">
       {pokemonList.map((pokemon) => (
         <PokemonCard
           onFavoriteClick={onFavoriteClick}
@@ -26,7 +26,7 @@ const PokemonList: React.FC<{
           isFavorite={isFavorite(pokemon.national_number)}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 

@@ -43,7 +43,7 @@ const PokemonCard: React.FC<{
   );
 
   return (
-    <div
+    <li
       className="pokemon-card__wrapper"
       onMouseOver={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -85,7 +85,7 @@ const PokemonCard: React.FC<{
           </span>
         ))}
       </div>
-    </div>
+    </li>
   );
 };
 
