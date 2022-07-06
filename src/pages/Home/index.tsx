@@ -10,6 +10,8 @@ import { Pokemon } from "interfaces";
 import PokemonList from "components/Home/PokemonList";
 import { applySearchFilter, getUniqueValues } from "utils";
 
+type SortingValues = "AN" | "DN" | "AR" | "DR";
+
 const Home = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [favoritePokemons, setFavoritePokemons] = useState<Pokemon[]>([]);
@@ -18,7 +20,7 @@ const Home = () => {
     searchTerm: "",
     showFavorites: false,
     pokemonTypes: [] as string[],
-    sorting: "A" as "A" | "B",
+    sorting: "A" as SortingValues,
   });
   const fetchedPokemonsRef = useRef<Pokemon[]>([]);
 
@@ -40,14 +42,16 @@ const Home = () => {
     () => [
       {
         label: "Ordenar pelo menor número",
-        value: "A",
+        value: "AR",
       },
-      { label: "Ordenar pelo maior número", value: "D" },
+      { label: "Ordenar pelo maior número", value: "DR" },
+      { label: "Ordenar por A-Z", value: "AN" },
+      { label: "Ordenar por Z-A", value: "DN" },
     ],
     []
   );
 
-  const handleChangeSortFilter = useCallback((value: "A" | "B") => {
+  const handleChangeSortFilter = useCallback((value: SortingValues) => {
     setPokemonFilters((prev) => ({
       ...prev,
       sorting: value,
@@ -95,10 +99,17 @@ const Home = () => {
   const sortPokemonsByNumber = useCallback(
     (pokemonsToFilter: Pokemon[]): Pokemon[] => {
       return pokemonsToFilter.sort((pokemonA, pokemonB) => {
-        if (pokemonFilters.sorting === "A") {
+        if (pokemonFilters.sorting === "AR") {
           return +pokemonA.national_number - +pokemonB.national_number;
         }
-        return +pokemonB.national_number - +pokemonA.national_number;
+        if (pokemonFilters.sorting === "DR") {
+          return +pokemonB.national_number - +pokemonA.national_number;
+        }
+        if (pokemonFilters.sorting === "AN") {
+          return String(pokemonA.name).localeCompare(String(pokemonB.name));
+        }
+
+        return String(pokemonB.name).localeCompare(String(pokemonA.name));
       });
     },
     [pokemonFilters.sorting]
@@ -189,7 +200,7 @@ const Home = () => {
               <SortToggle
                 options={selectOptions}
                 onChange={(e) =>
-                  handleChangeSortFilter(e.target.value as "A" | "B")
+                  handleChangeSortFilter(e.target.value as SortingValues)
                 }
               />
             </Col>
