@@ -68,27 +68,32 @@ const Home = () => {
     []
   );
 
-  const handleTypeSelect = useCallback((type: string, checked: boolean) => {
-    if (type) {
-      setPokemonFilters((prev) => {
-        if (checked) {
+  const handleTypeSelect = useCallback(
+    (type: string, checked: boolean): void => {
+      if (type) {
+        setPokemonFilters((prev) => {
+          if (checked) {
+            return {
+              ...prev,
+              pokemonTypes: [...prev.pokemonTypes, type],
+            };
+          }
           return {
             ...prev,
-            pokemonTypes: [...prev.pokemonTypes, type],
+            pokemonTypes: [
+              ...prev.pokemonTypes.filter(
+                (pokemonType) => pokemonType !== type
+              ),
+            ],
           };
-        }
-        return {
-          ...prev,
-          pokemonTypes: [
-            ...prev.pokemonTypes.filter((pokemonType) => pokemonType !== type),
-          ],
-        };
-      });
-    }
-  }, []);
+        });
+      }
+    },
+    []
+  );
 
   const handleShowFavoritesToggle = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement>): void =>
       setPokemonFilters((prev) => ({
         ...prev,
         showFavorites: e.target.checked,
