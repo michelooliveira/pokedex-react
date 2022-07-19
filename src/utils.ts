@@ -44,6 +44,5 @@ export const getUniqueValues = (newData: Pokemon[]) => {
   const distinctValues = [
     ...new Map(newData.map((x: Pokemon) => [x.national_number, x])).values(),
   ];
-  console.log({ distinctValues });
   return distinctValues;
 };

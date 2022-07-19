@@ -9,6 +9,7 @@ import NavBar from "components/Home/NavBar";
 import { Pokemon } from "interfaces";
 import PokemonList from "components/Home/PokemonList";
 import { applySearchFilter, getUniqueValues } from "utils";
+import { getPokemonList } from "services/pokemonService";
 
 type SortingValues = "AN" | "DN" | "AR" | "DR";
 
@@ -26,9 +27,7 @@ const Home = () => {
 
   const fetchPokemons = useCallback(async () => {
     try {
-      const response = await axios(
-        "https://unpkg.com/pokemons@1.1.0/pokemons.json"
-      );
+      const response = await getPokemonList();
       const res = response.data;
       const uniquePokemons = getUniqueValues(res.results);
       setPokemons(uniquePokemons);
